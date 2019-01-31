@@ -1,8 +1,8 @@
 
 class Article {
-  constructor(element) {
-    // assign this.element to the passed in article element
-    this.element = element;
+  constructor(domElement) {
+    // assign this.domElement to the passed in article element
+    this.domElement = domElement;
     // create a reference to the ".expandButton" class. 
     this.expandButton = document.querySelectorAll('.expandButton');
     // Using your expandButton reference, update the text on your expandButton to say "expand"
@@ -12,7 +12,7 @@ class Article {
   }
 
   expandArticle() {
-    // Using our reference to the article element, add or remove a class to expand or hide the article.
+  // Using our reference to the domElement, toggle a class to expand or hide the article.
     this.parentNode.classList.toggle('article-open');
   }
 }
@@ -21,5 +21,21 @@ class Article {
 // START HERE: Select all classes named ".article" and assign that value to the articles variable
 let articles  = document.querySelectorAll('.article');
 
-// Use .map() to iterate over the articles array and create a new instance of Article by passing in each article element as a parameter to the constructor.
-articles = Array.from(articles).map(element => new Article(element));
+// - With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles NodeList and create a new instance of Article by passing in each article as a parameter to the constructor.
+articles.forEach(article => new Article(article));
+
+
+
+const articleHeader = document.querySelector(".articles .article h2");
+
+articleHeader.addEventListener("dblclick", (e) => {
+    e.target.style.cssText = "font-size : 3rem";
+}); 
+
+const titleHeader = document.querySelector(".articles .article h2");
+
+titleHeader.addEventListener("dblclick", (e) => {
+    e.target.style.cssText = "font-size : 3rem";
+}); 
+
+
